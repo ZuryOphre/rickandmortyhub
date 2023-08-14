@@ -1,0 +1,49 @@
+.login-container {
+  background-color: var(--dark-grey);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--green);
+  font-family: 'Creepster', cursive;
+  text-shadow: 0 0 10px var(--dark-cyan), 0 0 20px var(--dark-cyan), 0 0 30px var(--dark-cyan);
+  padding: 10px;
+}
+
+.login-input {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  background-color: var(--grey);
+  color: var(--white);
+  border: 2px solid var(--black);
+}
+
+.login-submit-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: var(--dark-cyan);
+  color: var(--cyan);
+  border: 2px solid var(--black);
+  transition: background-color 0.3s ease;
+}
+
+.login-submit-button:hover {
+  background-color: var(--green);
+}
+
+.login-text {
+  color: var(--white);
+  margin-top: 0.5rem;
+}
+
+.login-link {
+  color: var(--cyan);
+}
