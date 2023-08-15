@@ -17,7 +17,7 @@ function Header() {
         setIsLoading(false);
       })
       .catch(error => {
-        console.error('Error al verificar autenticación:', error);
+        console.error('Failed to verify authentication:', error);
         setIsLoading(false);
       });
   }, [setIsLoggedIn]);

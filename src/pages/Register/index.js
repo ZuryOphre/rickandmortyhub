@@ -17,7 +17,7 @@ function Register() {
       setIsLoggedIn(false);
       navigate('/');
     } catch (error) {
-      console.error('Error en el registro:', error);
+      console.error('Registry error:', error);
     }
   };
 
