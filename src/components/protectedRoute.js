@@ -6,10 +6,10 @@ function ProtectedRoute({ path, element }) {
   const { isLoggedIn } = useAuth();
 
   if (!isLoggedIn) {
-    return <Navigate to="/" />;
+    return <Navigate to='/' />;
   }
 
-  return element; {}
+  return element;
 }
 
 export default ProtectedRoute;
