@@ -1,0 +1,23 @@
+.episode-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  max-width: 200px;
+}
+
+.episode-name {
+  font-size: 1rem;
+  color: #27ae60;
+  text-shadow: 0 0 1px #2980b9, 0 0 2px #2980b9, 0 0 2px #2980b9;
+  white-space: nowrap;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.episode-info {
+  color: grey;
+  margin-bottom: 10px;
+}
+
+  

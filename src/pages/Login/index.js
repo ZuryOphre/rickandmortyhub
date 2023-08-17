@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { login } from '../../api/ReqresApi';
@@ -10,9 +10,20 @@ function Login() {
   const { setIsLoggedIn } = useAuth();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = window.localStorage.getItem('token');
+
+    if (token) {
+      setIsLoggedIn(true);
+      navigate('/home');
+    }
+  }, [navigate, setIsLoggedIn]);
+
   const handleLogin = async () => {
     try {
-      await login(email, password);
+      const authData = await login(email, password);
+
+      window.localStorage.setItem('token', authData.token);
 
       setIsLoggedIn(true);
       navigate('/home');
@@ -22,26 +33,31 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
-      <h2 className="login-title">Login</h2>
+    <div className='login-container'>
+      <h2 className='login-title'>Login</h2>
       <input
-        className="login-input"
-        type="text"
-        placeholder="Email"
+        className='login-input'
+        type='text'
+        placeholder='Email'
         value={email}
-        onChange={e => setEmail(e.target.value)}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <input
-        className="login-input"
-        type="password"
-        placeholder="Password"
+        className='login-input'
+        type='password'
+        placeholder='Password'
         value={password}
-        onChange={e => setPassword(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
       />
-      <button className="login-submit-button" onClick={handleLogin}>Log In</button>
-      
-      <p className="login-text">
-        Don't have an account? <Link to="/register" className="login-link">Sign up</Link>
+      <button className='login-submit-button' onClick={handleLogin}>
+        Log In
+      </button>
+
+      <p className='login-text'>
+        Don't have an account?{' '}
+        <Link to='/register' className='login-link'>
+          Sign up
+        </Link>
       </p>
     </div>
   );
