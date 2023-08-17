@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../../components/Loading';
 import CharacterList from '../../components/CharacterList';
 import LocationList from '../../components/LocationList';
 import EpisodeList from '../../components/EpisodeList';
@@ -14,6 +15,7 @@ const Home = () => {
   const [locations, setLocations] = useState([]);
   const [episodes, setEpisodes] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +28,8 @@ const Home = () => {
 
         const episodeData = await fetchAllEpisodes(1);
         setEpisodes(episodeData);
+
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -46,35 +50,39 @@ const Home = () => {
     setSearchTerm(e.target.value);
   };
 
-
-
   return (
     <div className="home">
-      <div className="search-container">
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={handleSearch}
-        />
-      </div>
-      <div className="list-wrapper">
-        <div className="list-container">
-          <h1 className="list-title">Characters</h1>
-          <CharacterList searchTerm={searchTerm} characters={characters} />
+      {loading ? (
+        <Loading />
+      ) : (
+        <div>
+          <div className="search-container">
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={handleSearch}
+            />
+          </div>
+          <div className="list-wrapper">
+            <div className="list-container">
+              <h1 className="list-title">Characters</h1>
+              <CharacterList searchTerm={searchTerm} characters={characters} />
+            </div>
+            <div className="list-container">
+              <h1 className="list-title">Locations</h1>
+              <LocationList searchTerm={searchTerm} locations={locations} />
+            </div>
+            <div className="list-container">
+              <h1 className="list-title">Episodes</h1>
+              <EpisodeList searchTerm={searchTerm} episodes={filteredEpisodes} />
+            </div>
+          </div>
         </div>
-        <div className="list-container">
-          <h1 className="list-title">Locations</h1>
-          <LocationList searchTerm={searchTerm} locations={locations} />
-        </div>
-        <div className="list-container">
-          <h1 className="list-title">Episodes</h1>
-          <EpisodeList searchTerm={searchTerm} episodes={filteredEpisodes} />
-        </div>
-      </div>
+      )}
     </div>
-  );  
+  );
 };
 
 export default Home;

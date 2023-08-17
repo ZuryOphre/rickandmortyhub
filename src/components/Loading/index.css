@@ -1,0 +1,17 @@
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .loading-img {
+    max-width: 100%;
+  }
+  
+  .loading-description {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
