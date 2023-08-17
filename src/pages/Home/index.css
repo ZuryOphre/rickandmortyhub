@@ -28,15 +28,17 @@ body {
   border-radius: 9999em;
   transition: border-color 0.3s;
   border: 2px solid var(--dark-cyan);
+  width: 100%;
+  max-width: 300px;
 }
 
 .search-input:hover {
   border-color: var(--green); 
 }
 
-
 .list-wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
   max-width: 800px;
@@ -44,7 +46,9 @@ body {
 }
 
 .list-container {
-  width: 30%;
+  flex: 1;
+  margin: 10px;
+  max-width: calc(33.33% - 20px);
 }
 
 .list-title {
@@ -60,6 +64,3 @@ body {
     font-size: 1.2rem;
   }
 }
-
-
-
