@@ -13,7 +13,9 @@
 Email:    eve.holt@reqres.in
 Password: cityslicka
 
-![Login](public\assets\Gif-Login.gif)
+
+![Login](/public/assets/Gif-Login.gif)
+
 
 
 <h2>Registration</h2>
@@ -24,12 +26,17 @@ Password: cityslicka
 Email:    eve.holt@reqres.in
 Password: pistol 
 
-![Register](public\assets\Gif-Register.gif)
+
+![Register](/public/assets/Gif-Register.gif)
+
+
 
 <h2>Home Page</h2>
 <p>Upon entering the home page, three data lists are loaded: characters, locations, and episodes, retrieved from the Rick & Morty API. Additionally, there is a text box that allows filtering elements by name.</p>
 
-![Home-search](public\assets\Gif-Search.gif)
+
+![Home-search](/public/assets/Gif-Search.gif)
+
 
 <h2>Character Detail</h2>
 <p>Displays the image and specific details of a character selected from the list on the home page.</p>
