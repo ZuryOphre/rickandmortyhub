@@ -56,4 +56,9 @@ body {
 }
 
 
+@media (max-width: 768px) {
+  .list-title {
+    font-size: 1.2rem;
+  }
+}
 
