@@ -18,12 +18,14 @@ function Header() {
       })
       .catch(error => {
         console.error('Failed to verify authentication:', error);
+        window.localStorage.removeItem('token');
         setIsLoading(false);
       });
   }, [setIsLoggedIn]);
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    window.localStorage.removeItem('token');
     navigate('/');
   };
 
